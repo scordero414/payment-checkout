@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage Renders the main page correctly 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthXl css-19r6kue-MuiContainer-root"
+  >
+    <div
+      class="MuiBox-root css-u8bj4b"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h4 css-pxw7rc-MuiTypography-root"
+      >
+        Payment checkout
+      </h1>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-item css-1t8ikvu-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 MuiGrid-grid-xl-1.5 css-gz6hle-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-18lffqy-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
+              tabindex="0"
+              type="button"
+            >
+              <img
+                alt="product-image-2"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-6mo23z-MuiCardMedia-root"
+                height="200"
+                src="https://i.imgur.com/1twoaDy.jpeg"
+              />
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiTypography-noWrap css-d5bee8-MuiTypography-root"
+                >
+                  newTitle
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+                >
+                  $500000
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

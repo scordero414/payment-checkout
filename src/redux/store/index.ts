@@ -2,6 +2,7 @@ import type { Action, ThunkAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
 import { paymentCheckoutApi } from '@/src/redux/payment-checkout/payment-checkout-api';
 import { rootReducer } from '@/src/redux/store/root-reducer';
+import { productsApi } from '@/src/redux/products/products-api';
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -9,7 +10,9 @@ export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware => {
-      return getDefaultMiddleware().concat(paymentCheckoutApi.middleware);
+      return getDefaultMiddleware()
+        .concat(paymentCheckoutApi.middleware)
+        .concat(productsApi.middleware);
     },
   });
 };

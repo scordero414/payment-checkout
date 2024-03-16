@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const helloWorldApi = createApi({
+export const paymentCheckoutApi = createApi({
   reducerPath: 'helloWorldApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   endpoints(builder) {
@@ -8,4 +8,4 @@ export const helloWorldApi = createApi({
   },
 });
 
-export const {} = helloWorldApi;
+export const {} = paymentCheckoutApi;

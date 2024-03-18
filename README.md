@@ -1,29 +1,53 @@
-# Redux Toolkit TypeScript Example
+# Payment checkout
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+## Description
 
-**Redux Toolkit**(also known as "RTK" for short) provides a standardized way to write Redux logic. It includes utilities that help simplify many common use cases, including [store setup](https://redux-toolkit.js.org/api/configureStore), [creating reducers and writing immutable update logic](https://redux-toolkit.js.org/api/createreducer), and even [creating entire "slices" of state at once](https://redux-toolkit.js.org/api/createslice). This example showcases each of these features in conjunction with Next.js.
+Credit card payment checkout, is the onboarding where we obtain customer payment data to make the transaction of specific product and show
+the result of the process
 
-## Deploy Your Own
+## Table of Contents
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+- [Installation](#installation)
+- [Usage](#usage)
+- [Test Coverage](#test-coverage)
+- [Contact](#contact)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
+## Installation
 
-## How to Use
+Instructions on how to install the project.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Usage
 
-```bash
-npx create-next-app --example with-redux with-redux-app
-```
+Instructions on how to use the project.
 
-```bash
-yarn create next-app --example with-redux with-redux-app
-```
+## Test Coverage
 
-```bash
-pnpm create next-app --example with-redux with-redux-app
-```
+### Coverage Tool
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+This project uses Jest for testing and coverage. Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+
+### Minimum Coverage
+
+The project aims to maintain a minimum test coverage of 80%.
+
+### Running Tests and Generating Coverage
+
+To run the tests and generate the coverage report, use the following command:
+
+`yarn test:badges`
+
+This command will generate a coverage report in the `./coverage` directory.
+
+### Coverage Report
+
+The coverage report is available in the `./coverage/lcov-report/index.html`. You can view the report by opening this file in your web browser.
+
+### Coverage Badge
+
+![Coverage](./coverage/badge-statements.svg)
+
+This badge displays the current test coverage percentage.
+
+## Contact
+
+Contact information for the project maintainers.

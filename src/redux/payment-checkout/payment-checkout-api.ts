@@ -1,7 +1,8 @@
+import { sliceNamesConstants } from '@/constants/slice-names-constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const paymentCheckoutApi = createApi({
-  reducerPath: 'helloWorldApi',
+  reducerPath: sliceNamesConstants.paymentCheckoutApi,
   baseQuery: fetchBaseQuery({ baseUrl: '/' }),
   endpoints(builder) {
     return {};

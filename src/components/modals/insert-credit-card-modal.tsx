@@ -17,6 +17,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { PatternFormat } from 'react-number-format';
 import { useIsMobileDeviceData } from '@/hooks/use-is-mobile-device';
 import CloseIcon from '@mui/icons-material/Close';
+import { regexsConstants } from '@/constants/regexs';
+
+const { cardNumberRegex, cvcRegex } = regexsConstants;
 
 const Transition = forwardRef(
   (
@@ -39,10 +42,7 @@ export interface CreditCardData {
 const schema = yup.object().shape({
   cardNumber: yup
     .string()
-    .matches(
-      /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/,
-      'Card number must be in the correct format.'
-    )
+    .matches(cardNumberRegex, 'Card number must be in the correct format.')
     .required('Card number is required')
     .test('cardType', 'Only Visa or Mastercard accepted', value => {
       if (!value) return true;
@@ -76,7 +76,7 @@ const schema = yup.object().shape({
   cvc: yup
     .string()
     .required('CVC is required')
-    .matches(/^[0-9]{3,4}$/, 'Invalid CVC'),
+    .matches(cvcRegex, 'Invalid CVC'),
   holderName: yup.string().required('Holder name is required'),
 });
 

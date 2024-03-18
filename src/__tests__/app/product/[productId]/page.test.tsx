@@ -29,11 +29,12 @@ describe('ProductPage', () => {
 
     const jsx = await ProductPage({ params: { productId } });
 
-    const { getByText } = render(jsx);
+    const { getByText, container } = render(jsx);
 
     await waitFor(() => {
       expect(getByText(product.title)).toBeInTheDocument();
       expect(getByText(product.description)).toBeInTheDocument();
+      expect(container).toMatchSnapshot();
     });
   });
 

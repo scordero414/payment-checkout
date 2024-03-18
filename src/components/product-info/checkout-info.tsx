@@ -1,5 +1,11 @@
 import { Puller } from '@/components/product-info/pay-action';
+import { useAlertInfo } from '@/hooks/use-alert-info';
+import { useIsLoadingModal } from '@/hooks/use-loading-modal';
 import { selectPaymentCheckout } from '@/redux/payment-checkout/payment-checkout-slice';
+import {
+  useProcessBadPaymentMutation,
+  useProcessPaymentMutation,
+} from '@/redux/products/products-api';
 import { CreditCardData } from '@/types/payment-checkout';
 import { Product } from '@/types/products';
 import { decryptData } from '@/utils/encryption';
@@ -27,7 +33,6 @@ export const CheckoutInfo = ({
   product,
 }: CheckoutInfoProps) => {
   const { value } = useSelector(selectPaymentCheckout);
-
   const lastCardDigits = useMemo(
     () =>
       value
@@ -35,6 +40,53 @@ export const CheckoutInfo = ({
         : '',
     [value]
   );
+  const [
+    processPayment,
+    {
+      isLoading: isLoadingPayment,
+      isError: isProcessPaymentError,
+      error: processPaymentError,
+      isSuccess: isProcessPaymentSuccess,
+    },
+  ] = useProcessPaymentMutation();
+  const [
+    processBadPayment,
+    {
+      isLoading: isLoadingBadPayment,
+      isError: isProcessBadPaymentError,
+      error: processBadPaymentError,
+      isSuccess: isProcessBadPaymentSuccess,
+    },
+  ] = useProcessBadPaymentMutation();
+
+  useIsLoadingModal(isLoadingPayment || isLoadingBadPayment);
+
+  //For the bad case states
+  useAlertInfo(
+    isProcessBadPaymentError || isProcessBadPaymentSuccess,
+    isProcessBadPaymentSuccess
+      ? 'The payment process was successful'
+      : 'There was an error processing the payment ',
+    isProcessBadPaymentSuccess ? 'success' : 'error'
+  );
+
+  //For the good case states
+  useAlertInfo(
+    isProcessPaymentError || isProcessPaymentSuccess,
+    isProcessPaymentSuccess
+      ? 'The payment process was successful'
+      : 'There was an error processing the payment ',
+    isProcessPaymentSuccess ? 'success' : 'error'
+  );
+
+  const processOrder = () => {
+    const body = { cardData: value, product };
+    if (Math.random() > 0.5) {
+      return processPayment(body);
+    } else {
+      return processBadPayment(body);
+    }
+  };
 
   return (
     <SwipeableDrawer
@@ -102,7 +154,11 @@ export const CheckoutInfo = ({
               </Typography>
             </Typography>
           </Stack>
-          <Button fullWidth variant="contained" sx={{ mx: 2, mb: 4 }}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ mx: 2, mb: 4 }}
+            onClick={processOrder}>
             PAY
           </Button>
         </Grid>

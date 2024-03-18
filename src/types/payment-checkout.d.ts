@@ -1,3 +1,5 @@
+import { Product } from '@/types/products';
+
 export interface PaymentCheckoutState {
   value: string;
 }
@@ -7,4 +9,9 @@ export interface CreditCardData {
   expiryDate: string;
   cvc: string;
   holderName: string;
+}
+
+export interface ProcessPaymentData {
+  cardData: string;
+  product: Product;
 }

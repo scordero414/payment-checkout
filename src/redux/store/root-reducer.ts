@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { paymentCheckoutApi } from '@/redux/payment-checkout/payment-checkout-api';
 import { sliceNamesConstants } from '@/constants/slice-names-constants';
 import paymentCheckoutReducer from '@/redux/payment-checkout/payment-checkout-slice';
+import generalInfoReducer from '@/redux/general/general-info-slice';
 import { productsApi } from '@/redux/products/products-api';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
@@ -16,6 +16,6 @@ export const rootReducer = combineReducers({
     paymentCheckoutConfig,
     paymentCheckoutReducer
   ),
-  [paymentCheckoutApi.reducerPath]: paymentCheckoutApi.reducer,
+  [sliceNamesConstants.generalInfoSlice]: generalInfoReducer,
   [productsApi.reducerPath]: productsApi.reducer,
 });

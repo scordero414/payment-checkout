@@ -18,6 +18,13 @@ import { PatternFormat } from 'react-number-format';
 import { useIsMobileDeviceData } from '@/hooks/use-is-mobile-device';
 import CloseIcon from '@mui/icons-material/Close';
 import { regexsConstants } from '@/constants/regexs';
+import { CreditCardData } from '@/types/payment-checkout';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectPaymentCheckout,
+  setCreditCardInfo,
+} from '@/redux/payment-checkout/payment-checkout-slice';
+import { decryptData } from '@/utils/encryption';
 
 const { cardNumberRegex, cvcRegex } = regexsConstants;
 
@@ -31,13 +38,6 @@ const Transition = forwardRef(
     return <Slide direction="up" ref={ref} {...props} />;
   }
 );
-
-export interface CreditCardData {
-  cardNumber: string;
-  expiryDate: string;
-  cvc: string;
-  holderName: string;
-}
 
 const schema = yup.object().shape({
   cardNumber: yup
@@ -55,18 +55,26 @@ const schema = yup.object().shape({
       if (!value) return true;
 
       const [month, year] = value.split('/');
+      const numericMonth = parseInt(month, 10);
+      const numericYear = parseInt(year, 10);
       const currentDate = new Date();
-      const currentYear = currentDate.getFullYear() % 100; // Get last two digits of the current year
-      const currentMonth = currentDate.getMonth() + 1; // Month is 0 indexed
+      const currentYear = currentDate.getFullYear() % 100; // last digits
+      const currentMonth = currentDate.getMonth() + 1; // Indexed from 0
 
-      if (parseInt(year, 10) < currentYear) {
+      if (
+        isNaN(numericMonth) ||
+        isNaN(numericYear) ||
+        numericMonth < 1 ||
+        numericMonth > 12
+      ) {
         return false;
       }
 
-      if (
-        parseInt(year, 10) === currentYear &&
-        parseInt(month, 10) < currentMonth
-      ) {
+      if (numericYear < currentYear) {
+        return false;
+      }
+
+      if (numericYear === currentYear && numericMonth <= currentMonth) {
         return false;
       }
 
@@ -90,6 +98,8 @@ export const InsertCreditCardModal = ({
   handleClose,
 }: InsertCreditCardModalProps) => {
   const isMobile = useIsMobileDeviceData();
+  const dispatch = useDispatch();
+  const { value } = useSelector(selectPaymentCheckout);
 
   const {
     register,
@@ -99,12 +109,13 @@ export const InsertCreditCardModal = ({
   } = useForm<CreditCardData>({
     resolver: yupResolver(schema),
     mode: 'onChange',
+    defaultValues: value ? (decryptData(value) as CreditCardData) : {},
   });
 
   const currentCreditCardData = useWatch({ control }) as CreditCardData;
 
   const onSubmit = (data: CreditCardData) => {
-    console.log(data);
+    dispatch(setCreditCardInfo(data));
   };
 
   return (

@@ -1,4 +1,4 @@
-import { sliceNamesConstants } from '@/src/constants/slice-names-constants';
+import { sliceNamesConstants } from '@/constants/slice-names-constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const paymentCheckoutApi = createApi({

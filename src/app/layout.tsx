@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import './styles/globals.css';
-import { StoreProvider } from '@/src/app/store-provider';
+import '@/theme/globals.css';
+import { StoreProvider } from '@/app/store-provider';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import theme from '@/src/theme';
+import theme from '@/theme';
 
 interface Props {
   readonly children: ReactNode;

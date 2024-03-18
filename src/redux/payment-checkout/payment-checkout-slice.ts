@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '@/src/redux/store';
-import { sliceNamesConstants } from '@/src/constants/slice-names-constants';
-import { PaymentCheckoutState } from '@/src/types/payment-checkout';
+import { RootState } from '@/redux/store';
+import { sliceNamesConstants } from '@/constants/slice-names-constants';
+import { PaymentCheckoutState } from '@/types/payment-checkout';
 
 const initialState: PaymentCheckoutState = {
   value: '',

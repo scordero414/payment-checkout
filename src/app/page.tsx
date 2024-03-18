@@ -1,4 +1,4 @@
-import { ProductList } from '@/src/components/products/product-list';
+import { ProductList } from '@/components/products/product-list';
 import { Box, Container, Typography } from '@mui/material';
 import type { Metadata } from 'next';
 
@@ -16,7 +16,6 @@ export default function MainPage() {
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Payment checkout
         </Typography>
-
         <ProductList />
       </Box>
     </Container>

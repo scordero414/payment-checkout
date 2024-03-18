@@ -1,13 +1,12 @@
 'use client';
 
 import { InsertCreditCardModal } from '@/components/modals/insert-credit-card-modal';
+import { CheckoutInfo } from '@/components/product-info/checkout-info';
 import { useHandleOpen } from '@/hooks/use-handle-open';
-// import { persistor } from '@/redux/store';
-import styled from '@emotion/styled';
-import { Box, Button, Grid, SwipeableDrawer, Typography } from '@mui/material';
-import { PersistGate } from 'redux-persist/integration/react';
+import { Product } from '@/types/products';
+import { Box, Button, Typography, styled } from '@mui/material';
 
-const Puller = styled(Box)(({ theme }) => ({
+export const Puller = styled(Box)(() => ({
   width: 30,
   height: 6,
   backgroundColor: 'white',
@@ -16,8 +15,11 @@ const Puller = styled(Box)(({ theme }) => ({
   top: 8,
   left: 'calc(50% - 15px)',
 }));
+interface PayActionButtonProps {
+  product: Product;
+}
 
-export const PayActionButton = () => {
+export const PayActionButton = ({ product }: PayActionButtonProps) => {
   const { open, handleOpen, handleClose } = useHandleOpen();
 
   const {
@@ -41,7 +43,6 @@ export const PayActionButton = () => {
   };
 
   return (
-    // <PersistGate persistor={persistor}>
     <Box sx={{ width: '100%', height: '100%' }}>
       <Button variant="contained" fullWidth onClick={handleOpen}>
         Pay with credit card
@@ -52,28 +53,11 @@ export const PayActionButton = () => {
         processCheckout={processCheckout}
       />
 
-      <SwipeableDrawer
-        anchor={'bottom'}
-        open={openCheckout}
-        onClose={toggleOpen}
-        onOpen={toggleOpen}>
-        <Box
-          onClick={toggleOpen}
-          sx={{
-            height: '50vh',
-            textAlign: 'center',
-          }}>
-          <Box sx={{ backgroundColor: 'primary.main' }}>
-            <Puller />
-            <Typography sx={{ pb: 1, pt: 2.5, color: 'white' }}>
-              Checkout
-            </Typography>
-          </Box>
-          <Grid container>
-            <Grid item></Grid>
-          </Grid>
-        </Box>
-      </SwipeableDrawer>
+      <CheckoutInfo
+        openCheckout={openCheckout}
+        toggleOpen={toggleOpen}
+        product={product}
+      />
 
       <Box
         onClick={toggleOpen}
@@ -92,6 +76,5 @@ export const PayActionButton = () => {
         </Typography>
       </Box>
     </Box>
-    // </PersistGate>
   );
 };

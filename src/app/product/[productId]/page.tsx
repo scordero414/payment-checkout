@@ -20,8 +20,8 @@ export default async function ProductPage({
 }: {
   params: ProductPageProps;
 }) {
-  const { id, title, description, image, price } = await getProduct(productId);
-
+  const product = await getProduct(productId);
+  const { id, title, description, image, price } = product;
   if (!id) {
     notFound();
   }
@@ -70,7 +70,7 @@ export default async function ProductPage({
               {description}
             </Typography>
           </Stack>
-          <PayActionButton />
+          <PayActionButton product={product} />
         </Grid>
       </Grid>
     </Container>

@@ -40,13 +40,13 @@ describe('ProductPage', () => {
 
     const jsx = await ProductPage({ params: { productId } });
 
-    const { getByText, container } = render(
+    const { getAllByText, container } = render(
       <Provider store={store}>{jsx}</Provider>
     );
 
     await waitFor(() => {
-      expect(getByText(product.title)).toBeInTheDocument();
-      expect(getByText(product.description)).toBeInTheDocument();
+      expect(getAllByText(product.title)[0]).toBeInTheDocument();
+      expect(getAllByText(product.description)[0]).toBeInTheDocument();
       expect(container).toMatchSnapshot();
     });
   });

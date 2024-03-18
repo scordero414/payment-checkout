@@ -13,9 +13,7 @@ export default function MainPage() {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Box pt={10}>
-          <ProductList />
-        </Box>
+        <ProductList />
       </Box>
     </Container>
   );

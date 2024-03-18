@@ -11,6 +11,7 @@ export const ProductList = () => {
     <Grid
       item
       container
+      pt={10}
       gap={{ xs: 2, md: 4 }}
       sx={{ justifyContent: 'center' }}>
       {products.map(product => (

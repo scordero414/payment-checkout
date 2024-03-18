@@ -13,9 +13,6 @@ export default function MainPage() {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Payment checkout
-        </Typography>
         <ProductList />
       </Box>
     </Container>

@@ -45,7 +45,6 @@ export const CheckoutInfo = ({
       <Box
         onClick={toggleOpen}
         sx={{
-          height: '50vh',
           textAlign: 'center',
         }}>
         <Box sx={{ backgroundColor: 'primary.main' }}>
@@ -103,7 +102,7 @@ export const CheckoutInfo = ({
               </Typography>
             </Typography>
           </Stack>
-          <Button fullWidth variant="contained" sx={{ mx: 2 }}>
+          <Button fullWidth variant="contained" sx={{ mx: 2, mb: 4 }}>
             PAY
           </Button>
         </Grid>

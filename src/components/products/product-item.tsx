@@ -1,4 +1,4 @@
-import { Product } from '@/src/types/products';
+import { Product } from '@/types/products';
 import {
   Card,
   CardActionArea,
@@ -7,22 +7,29 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 interface ProductItemProps {
   product: Product;
 }
 
 export const ProductItem = ({ product }: ProductItemProps) => {
-  const { title, images, id, price } = product;
+  const { title, image, id, price } = product;
+
+  const router = useRouter();
+
+  const handleOpenProduct = () => {
+    router.push(`/product/${id}`);
+  };
   return (
     <Grid item container xs={12} sm={5} md={3} lg={2} xl={1.5}>
-      <Card sx={{ width: '100%', maxHeight: 320 }}>
+      <Card sx={{ width: '100%', maxHeight: 320 }} onClick={handleOpenProduct}>
         <CardActionArea>
           <CardMedia
             component="img"
             height={200}
-            image={images[0]}
-            sx={{ objectFit: 'cover' }}
+            image={image}
+            sx={{ objectFit: 'contain' }}
             alt={`product-image-${id}`}
           />
           <CardContent>

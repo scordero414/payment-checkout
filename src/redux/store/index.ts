@@ -1,8 +1,8 @@
 import type { Action, ThunkAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
-import { paymentCheckoutApi } from '@/src/redux/payment-checkout/payment-checkout-api';
-import { rootReducer } from '@/src/redux/store/root-reducer';
-import { productsApi } from '@/src/redux/products/products-api';
+import { paymentCheckoutApi } from '@/redux/payment-checkout/payment-checkout-api';
+import { rootReducer } from '@/redux/store/root-reducer';
+import { productsApi } from '@/redux/products/products-api';
 
 export type RootState = ReturnType<typeof rootReducer>;
 

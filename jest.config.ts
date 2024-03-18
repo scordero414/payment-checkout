@@ -14,12 +14,17 @@ const config: Config = {
   testEnvironment: 'jsdom',
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  moduleNameMapper: pathsToModuleNameMapper(
-    { '@/*': ['./*'] },
-    {
-      prefix: '<rootDir>/',
-    }
-  ),
+  // moduleNameMapper: pathsToModuleNameMapper(
+  //   { '@/src/*': ['src/*'] },
+  //   {
+  //     prefix: '<rootDir>/',
+  //   }
+  // ),
+  moduleDirectories: ['node_modules', 'src/'],
+  moduleNameMapper: {
+    '@/(.*)$': '<rootDir>/src/$1',
+  },
+  // setupFilesAfterEnv: ['<rootDir>/setup-tests.ts'],
   coverageReporters: [
     'json-summary', // This is important for generating coverage-summary.json
     'text',

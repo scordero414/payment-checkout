@@ -29,9 +29,8 @@ exports[`MainPage Renders the main page correctly 1`] = `
             >
               <img
                 alt="product-image-2"
-                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-6mo23z-MuiCardMedia-root"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
                 height="200"
-                src="https://i.imgur.com/1twoaDy.jpeg"
               />
               <div
                 class="MuiCardContent-root css-46bh2p-MuiCardContent-root"

@@ -64,18 +64,6 @@ exports[`ProductPage should render product details 1`] = `
             class="PrivateSwipeArea-root css-17j2vre"
             style="height: 20px;"
           />
-          <div
-            class="MuiBox-root css-188yn3u"
-          >
-            <div
-              class="MuiBox-root css-pwmwbi"
-            />
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1nbvpvo-MuiTypography-root"
-            >
-              Checkout
-            </p>
-          </div>
         </div>
       </div>
     </div>

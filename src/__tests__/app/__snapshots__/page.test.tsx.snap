@@ -9,45 +9,49 @@ exports[`MainPage Renders the main page correctly 1`] = `
       class="MuiBox-root css-u8bj4b"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-item css-1t8ikvu-MuiGrid-root"
+        class="MuiBox-root css-130jr3z"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 MuiGrid-grid-xl-1.5 css-gz6hle-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item css-1t8ikvu-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-18lffqy-MuiPaper-root-MuiCard-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 MuiGrid-grid-xl-1.5 css-gz6hle-MuiGrid-root"
           >
-            <button
-              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
-              tabindex="0"
-              type="button"
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-18lffqy-MuiPaper-root-MuiCard-root"
             >
-              <img
-                alt="product-image-2"
-                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
-                height="200"
-              />
-              <div
-                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              <button
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
+                tabindex="0"
+                type="button"
               >
+                <img
+                  alt="product-image-2"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1bevvzh-MuiCardMedia-root"
+                  height="200"
+                />
                 <div
-                  class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiTypography-noWrap css-d5bee8-MuiTypography-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
-                  newTitle
+                  <div
+                    class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiTypography-noWrap css-d5bee8-MuiTypography-root"
+                  >
+                    newTitle
+                  </div>
+                  <p
+                    class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+                  >
+                    $500000
+                  </p>
                 </div>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-                >
-                  $500000
-                </p>
-              </div>
-              <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
+                <span
+                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+                />
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

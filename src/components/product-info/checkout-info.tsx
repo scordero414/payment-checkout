@@ -111,7 +111,7 @@ export const CheckoutInfo = ({
             Summary
           </Typography>
           <Grid item container justifyContent="center">
-            <Grid item container xs={4} justifyContent="center">
+            <Grid item container xs={4} sm={2} justifyContent="center">
               <Box
                 sx={{
                   border: '1px solid',
@@ -127,7 +127,13 @@ export const CheckoutInfo = ({
                 />
               </Box>
             </Grid>
-            <Grid item container xs={8} sm={4} alignItems="center">
+            <Grid
+              item
+              container
+              xs={6}
+              sm={2}
+              justifyContent="center"
+              alignItems="center">
               <Stack>
                 <Typography variant="subtitle1" component="h1">
                   {product.title}

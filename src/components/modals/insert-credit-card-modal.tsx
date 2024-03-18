@@ -10,7 +10,7 @@ import {
   TextField,
 } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
-import { ReactElement, Ref, forwardRef } from 'react';
+import { ReactElement, Ref, forwardRef, useEffect } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -103,16 +103,25 @@ export const InsertCreditCardModal = ({
   const dispatch = useDispatch();
   const { value } = useSelector(selectPaymentCheckout);
 
+  console.log(value);
+
   const {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<CreditCardData>({
     resolver: yupResolver(schema),
     mode: 'onChange',
     defaultValues: value ? (decryptData(value) as CreditCardData) : {},
   });
+
+  useEffect(() => {
+    if (value) {
+      reset(decryptData(value) as CreditCardData);
+    }
+  }, [value]);
 
   const currentCreditCardData = useWatch({ control }) as CreditCardData;
 

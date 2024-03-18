@@ -1,7 +1,6 @@
-import { InsertCreditCardModal } from '@/components/modals/insert-credit-card-modal';
 import { PayActionButton } from '@/components/product-info/pay-action';
 import { Product } from '@/types/products';
-import { Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 

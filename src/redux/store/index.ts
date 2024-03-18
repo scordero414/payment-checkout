@@ -13,31 +13,37 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    })
-      .concat(paymentCheckoutApi.middleware)
-      .concat(productsApi.middleware);
-  },
-});
+export type RootState = ReturnType<typeof rootReducer>;
 
-// export type AppStore = ReturnType<typeof makeStore>;
-// export type AppDispatch = AppStore['dispatch'];
-// export type AppThunk<ThunkReturnType = void> = ThunkAction<
-//   ThunkReturnType,
-//   RootState,
-//   unknown,
-//   Action
-// >;
-export const persistor = persistStore(store);
+export const makeStore = () => {
+  let store: any = configureStore({
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware => {
+      return getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      })
+        .concat(paymentCheckoutApi.middleware)
+        .concat(productsApi.middleware);
+    },
+  });
+  store.__persistor = persistStore(store);
+  return store;
+};
 
-export type AppStore = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppDispatch = AppStore['dispatch'];
+export type AppThunk<ThunkReturnType = void> = ThunkAction<
+  ThunkReturnType,
+  RootState,
+  unknown,
+  Action
+>;
+// export const persistor = persistStore(store);
 
-export type AppDispatch = typeof store.dispatch;
+// export type AppStore = ReturnType<typeof store.getState>;
 
-export type AppThunk = ThunkAction<void, AppStore, null, Action<string>>;
+// export type AppDispatch = typeof store.dispatch;
+
+// export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;

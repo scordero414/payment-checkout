@@ -91,11 +91,13 @@ const schema = yup.object().shape({
 interface InsertCreditCardModalProps {
   open: boolean;
   handleClose: () => void;
+  processCheckout: () => void;
 }
 
 export const InsertCreditCardModal = ({
   open,
   handleClose,
+  processCheckout,
 }: InsertCreditCardModalProps) => {
   const isMobile = useIsMobileDeviceData();
   const dispatch = useDispatch();
@@ -116,6 +118,7 @@ export const InsertCreditCardModal = ({
 
   const onSubmit = (data: CreditCardData) => {
     dispatch(setCreditCardInfo(data));
+    processCheckout();
   };
 
   return (
@@ -144,12 +147,12 @@ export const InsertCreditCardModal = ({
             item
             container
             xs={12}
-            sm={6}
+            md={6}
             justifyContent="center"
             alignItems="center">
             <CreditCard {...currentCreditCardData} />
           </Grid>
-          <Grid item container xs={12} sm={6} spacing={2}>
+          <Grid item container xs={12} md={6} spacing={2}>
             <Grid item xs={12}>
               <Controller
                 name="cardNumber"

@@ -3,8 +3,8 @@ import { paymentCheckoutApi } from '@/redux/payment-checkout/payment-checkout-ap
 import { sliceNamesConstants } from '@/constants/slice-names-constants';
 import paymentCheckoutReducer from '@/redux/payment-checkout/payment-checkout-slice';
 import { productsApi } from '@/redux/products/products-api';
+import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import storage from '@/utils/storage';
 
 const paymentCheckoutConfig = {
   key: sliceNamesConstants.paymentCheckoutSlice,

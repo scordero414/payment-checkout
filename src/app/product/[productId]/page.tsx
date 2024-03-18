@@ -1,7 +1,6 @@
-import { InsertCreditCardModal } from '@/components/modals/insert-credit-card-modal';
 import { PayActionButton } from '@/components/product-info/pay-action';
 import { Product } from '@/types/products';
-import { Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Container, Grid, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -21,8 +20,8 @@ export default async function ProductPage({
 }: {
   params: ProductPageProps;
 }) {
-  const { id, title, description, image, price } = await getProduct(productId);
-
+  const product = await getProduct(productId);
+  const { id, title, description, image, price } = product;
   if (!id) {
     notFound();
   }
@@ -71,7 +70,7 @@ export default async function ProductPage({
               {description}
             </Typography>
           </Stack>
-          <PayActionButton />
+          <PayActionButton product={product} />
         </Grid>
       </Grid>
     </Container>

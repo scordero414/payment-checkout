@@ -1,5 +1,5 @@
-import { CreditCardData } from '@/components/modals/insert-credit-card-modal';
 import { useIsMobileDeviceData } from '@/hooks/use-is-mobile-device';
+import { CreditCardData } from '@/types/payment-checkout';
 import {
   Box,
   Grid,

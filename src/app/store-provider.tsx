@@ -4,6 +4,7 @@ import { makeStore } from '@/redux/store';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 
 interface Props {
@@ -24,5 +25,11 @@ export const StoreProvider = ({ children }: Props) => {
     }
   }, []);
 
-  return <Provider store={storeRef.current}>{children}</Provider>;
+  return (
+    <Provider store={storeRef.current}>
+      {/* <PersistGate persistor={storeRef.current.__persistor}> */}
+      {children}
+      {/* </PersistGate> */}
+    </Provider>
+  );
 };

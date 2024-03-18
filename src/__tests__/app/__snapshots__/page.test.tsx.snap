@@ -8,11 +8,6 @@ exports[`MainPage Renders the main page correctly 1`] = `
     <div
       class="MuiBox-root css-u8bj4b"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h4 css-pxw7rc-MuiTypography-root"
-      >
-        Payment checkout
-      </h1>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-item css-1t8ikvu-MuiGrid-root"
       >
